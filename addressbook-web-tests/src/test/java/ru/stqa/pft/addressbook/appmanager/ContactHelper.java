@@ -5,7 +5,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper {
-    FirefoxDriver wd;
+    private FirefoxDriver wd;
 
     public ContactHelper(FirefoxDriver wd) {
         this.wd = wd;

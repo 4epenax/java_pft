@@ -28,30 +28,30 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/group.php");
         contactHelper = new ContactHelper(wd);
-        groupHelper = new GroupHelper(contactHelper.wd);
+        groupHelper = new GroupHelper(wd);
         login("admin", "secret");
     }
 
     private void login(String username, String password) {
-        contactHelper.wd.findElement(By.name("user")).click();
-        contactHelper.wd.findElement(By.name("user")).clear();
-        contactHelper.wd.findElement(By.name("user")).sendKeys(username);
-        contactHelper.wd.findElement(By.name("pass")).click();
-        contactHelper.wd.findElement(By.name("pass")).clear();
-        contactHelper.wd.findElement(By.name("pass")).sendKeys(password);
-        contactHelper.wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
+        wd.findElement(By.name("user")).click();
+        wd.findElement(By.name("user")).clear();
+        wd.findElement(By.name("user")).sendKeys(username);
+        wd.findElement(By.name("pass")).click();
+        wd.findElement(By.name("pass")).clear();
+        wd.findElement(By.name("pass")).sendKeys(password);
+        wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
     }
 
     public void gotoGroupPage() {
-        contactHelper.wd.findElement(By.linkText("groups")).click();
+        wd.findElement(By.linkText("groups")).click();
     }
 
     public void gotoHomePage() {
-        contactHelper.wd.findElement(By.linkText("home")).click();
+        wd.findElement(By.linkText("home")).click();
     }
 
     public void stop() {
-        contactHelper.wd.quit();
+        wd.quit();
     }
 
     public GroupHelper getGroupHelper() {
