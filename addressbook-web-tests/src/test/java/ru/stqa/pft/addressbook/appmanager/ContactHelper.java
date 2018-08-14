@@ -7,6 +7,10 @@ import ru.stqa.pft.addressbook.model.ContactData;
 public class ContactHelper {
     FirefoxDriver wd;
 
+    public ContactHelper(FirefoxDriver wd) {
+        this.wd = wd;
+    }
+
     public void submitContactCreation() {
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }

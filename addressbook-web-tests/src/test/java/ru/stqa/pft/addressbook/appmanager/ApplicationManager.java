@@ -9,7 +9,9 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
-    private final ContactHelper contactHelper = new ContactHelper();
+    FirefoxDriver wd;
+
+    private ContactHelper contactHelper;
     private GroupHelper groupHelper;
 
     public static boolean isAlertPresent(FirefoxDriver wd) {
@@ -22,9 +24,10 @@ public class ApplicationManager {
     }
 
     public void init() {
-        contactHelper.wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
-        contactHelper.wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        contactHelper.wd.get("http://localhost/addressbook/group.php");
+        wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
+        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/group.php");
+        contactHelper = new ContactHelper(wd);
         groupHelper = new GroupHelper(contactHelper.wd);
         login("admin", "secret");
     }
