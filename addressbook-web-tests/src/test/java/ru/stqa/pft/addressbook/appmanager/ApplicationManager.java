@@ -8,7 +8,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.concurrent.TimeUnit;
 
-public class ApplicationManager {
+public class ApplicationManager extends ContactHelper {
 
     private final GroupHelper groupHelper = new GroupHelper();
 
