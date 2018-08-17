@@ -17,10 +17,14 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private ContactHelper contactHelper;
     private GroupHelper groupHelper;
+    private String browser;
+
+    public ApplicationManager(String browser) {
+        this.browser = browser;
+    }
 
     public void init() {
 
-        String browser = BrowserType.FIREFOX;
         if (browser == BrowserType.FIREFOX) {
             wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
         } else if (browser == BrowserType.CHROME) {
@@ -28,7 +32,7 @@ public class ApplicationManager {
         } else if (browser == BrowserType.IE) {
             wd = new InternetExplorerDriver();
         }
-        
+
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/group.php");
         groupHelper = new GroupHelper(wd);
