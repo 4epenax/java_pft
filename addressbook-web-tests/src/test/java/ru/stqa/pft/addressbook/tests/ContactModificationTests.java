@@ -13,11 +13,11 @@ public class ContactModificationTests extends TestBase {
     public void testContactModification() {
         app.getNavigationHelper().gotoHomePage();
         if (! app.getContactHelper().isThereAContact()) {
-            app.getContactHelper().createContact(new ContactData("First", "Last", null, null, null, "test1"));
+            app.getContactHelper().createContact(new ContactData("First", "Last", "Addr", "Hom", "mail@sys.tt", "test1"));
         }
         List<ContactData> before = app.getContactHelper().getContactList();
         app.getContactHelper().initContactModification(before.size() - 1);
-        ContactData contact = new ContactData(before.get(before.size() - 1).getId(),"First1", "Last1", null, null,  null, null);
+        ContactData contact = new ContactData(before.get(before.size() - 1).getId(),"First1", "Last1", "Addr", "Hom",  "mail@sys.tt", null);
         app.getContactHelper().fillContactForm(contact, false);
         app.getContactHelper().submitContactModification();
         app.getNavigationHelper().gotoHomePage();
