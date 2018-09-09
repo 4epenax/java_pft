@@ -9,26 +9,6 @@ public class ContactData {
     private String email;
     private String group;
 
-    public ContactData(String firstname, String lastname, String address, String home, String email, String group) {
-        this.id = Integer.MAX_VALUE;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.address = address;
-        this.home = home;
-        this.email = email;
-        this.group = group;
-    }
-
-    public ContactData(int id, String firstname, String lastname, String address, String home, String email, String group) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.address = address;
-        this.home = home;
-        this.email = email;
-        this.group = group;
-    }
-
     public int getId() {
         return id;
     }
