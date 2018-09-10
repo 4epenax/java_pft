@@ -22,7 +22,7 @@ public class ContactModificationTests extends TestBase {
     public void testContactModification() {
         List<ContactData> before = app.contact().list();
         int index = before.size() - 1;
-        ContactData contact = new ContactData().withId(before.get(index).getId()).withFirstname("First").withLastname("Last");
+        ContactData contact = new ContactData().withId(before.get(index).getId()).withFirstname("First1").withLastname("Last1");
         app.contact().modify(index, contact);
         List<ContactData> after = app.contact().list();
         Assert.assertEquals(after.size(), before.size());
