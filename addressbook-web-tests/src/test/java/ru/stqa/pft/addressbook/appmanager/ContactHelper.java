@@ -106,4 +106,9 @@ public class ContactHelper extends HelperBase {
         }
         return new Contacts(contactCache);
     }
+
+    public ContactData infoFromEditForm(ContactData contact) {
+        initContactModificationById(contact.getId());
+        
+    }
 }
