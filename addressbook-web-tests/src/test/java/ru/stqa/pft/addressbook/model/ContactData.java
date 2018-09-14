@@ -123,20 +123,4 @@ public class ContactData {
                 ", email='" + email + '\'' +
                 '}';
     }
-
-    public String getWork() {
-        return work;
-    }
-
-    public void setWork(String work) {
-        this.work = work;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
 }
