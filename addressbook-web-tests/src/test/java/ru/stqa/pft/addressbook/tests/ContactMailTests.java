@@ -1,4 +1,11 @@
 package ru.stqa.pft.addressbook.tests;
 
-public class ContactMailTests {
+import org.testng.annotations.Test;
+
+public class ContactMailTests extends TestBase {
+
+    @Test
+    public void testContactMail() {
+        
+    }
 }
