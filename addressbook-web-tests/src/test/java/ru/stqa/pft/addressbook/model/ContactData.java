@@ -21,9 +21,17 @@ public class ContactData {
         return this;
     }
 
+    public String getFirstname() {
+        return firstname;
+    }
+
     public ContactData withFirstname(String firstname) {
         this.firstname = firstname;
         return this;
+    }
+
+    public String getLastname() {
+        return lastname;
     }
 
     public ContactData withLastname(String lastname) {
@@ -31,29 +39,17 @@ public class ContactData {
         return this;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
     public ContactData withAddress(String address) {
         this.address = address;
         return this;
     }
 
-    public ContactData withHomePhone(String home) {
-        this.home = home;
-        return this;
-    }
-
-    public ContactData withMobilePhone(String mobile) {
-        this.mobile = mobile;
-        return this;
-    }
-
-    public ContactData withWorkPhone(String work) {
-        this.work = work;
-        return this;
-    }
-
-    public ContactData withAllPhones(String allPhones) {
-        this.allPhones = allPhones;
-        return this;
+    public String getEmail() {
+        return email;
     }
 
     public ContactData withEmail(String email) {
@@ -61,45 +57,49 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withGroup(String group) {
-        this.group = group;
-        return this;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
     public String getHomePhone() {
         return home;
+    }
+
+    public ContactData withHomePhone(String home) {
+        this.home = home;
+        return this;
     }
 
     public String getMobilePhone() {
         return mobile;
     }
 
+    public ContactData withMobilePhone(String mobile) {
+        this.mobile = mobile;
+        return this;
+    }
+
     public String getWorkPhone() {
         return work;
+    }
+
+    public ContactData withWorkPhone(String work) {
+        this.work = work;
+        return this;
     }
 
     public String getAllPhones() {
         return allPhones;
     }
 
-    public String getEmail() {
-        return email;
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
     }
 
     public String getGroup() {
         return group;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
     }
 
     @Override
