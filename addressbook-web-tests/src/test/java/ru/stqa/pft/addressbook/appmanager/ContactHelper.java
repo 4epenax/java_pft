@@ -120,6 +120,6 @@ public class ContactHelper extends HelperBase {
         String work = wd.findElement(By.name("work")).getAttribute("value");
         wd.navigate().back();
         return new ContactData().withId(contact.getId()).withFirstname(firstname)
-                .withLastname(lastname).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+                .withLastname(lastname).withAddress(address).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
     }
 }
