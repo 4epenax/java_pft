@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-public class ContactMailTests extends TestBase {
+public class ContactEmailTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
