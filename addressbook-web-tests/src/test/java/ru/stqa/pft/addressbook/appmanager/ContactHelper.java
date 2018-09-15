@@ -128,7 +128,7 @@ public class ContactHelper extends HelperBase {
         String work = wd.findElement(By.name("work")).getAttribute("value");
         wd.navigate().back();
         return new ContactData().withId(contact.getId()).withFirstname(firstname)
-                .withLastname(lastname).withAddress(address).withHomePhone(home)
-                .withMobilePhone(mobile).withWorkPhone(work);
+                .withLastname(lastname).withAddress(address).withEmail(email).withEmail2(email2)
+                .withEmail3(email3).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
     }
 }
