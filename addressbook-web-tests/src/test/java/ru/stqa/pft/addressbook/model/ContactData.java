@@ -8,6 +8,7 @@ public class ContactData {
     private String email;
     private String email2;
     private String email3;
+    private String allEmail;
     private String home;
     private String mobile;
     private String work;
@@ -74,6 +75,15 @@ public class ContactData {
 
     public ContactData withEmail3(String email3) {
         this.email3 = email3;
+        return this;
+    }
+
+    public String getAllEmail() {
+        return allEmail;
+    }
+
+    public ContactData withAllEmail(String allEmail) {
+        this.allEmail = allEmail;
         return this;
     }
 
