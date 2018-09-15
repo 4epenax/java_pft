@@ -18,6 +18,7 @@ public class ContactEmailTests extends TestBase {
         if (app.contact().all().size() == 0) {
             app.contact().create(new ContactData()
                     .withFirstname("First").withLastname("Last").withAddress("Russia")
+                    .withEmail("test@mail.tt").withEmail2("test@mail2.tt").withEmail3("test3@mail.tt")
                     .withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withGroup("test2"));
         }
     }
