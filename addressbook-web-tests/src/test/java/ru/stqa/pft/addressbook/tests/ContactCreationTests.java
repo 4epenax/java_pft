@@ -17,7 +17,7 @@ public class ContactCreationTests extends TestBase {
         Contacts before = app.contact().all();
         File photo = new File("src/test/resources/usertile30.jpg");
         ContactData contact = new ContactData().withFirstname("First").withLastname("Last").withAddress("Russia")
-                .withEmail("test@mail.tt").withEmail2("test@mail2.tt").withEmail3("test3@mail.tt")
+                .withEmail("test@mail.tt").withEmail2("test2@mail.tt").withEmail3("test3@mail.tt")
                 .withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withPhoto(photo).withGroup("test2");
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
