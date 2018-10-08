@@ -1,0 +1,54 @@
+[
+  {
+    "firstname": "First 0",
+    "lastname": "Last 0",
+    "address": "Tver 0",
+    "email": "test@mail.tt 0",
+    "email2": "test2@mail.tt 0",
+    "email3": "test3@mail.tt 0",
+    "home": "111 0",
+    "mobile": "222 0",
+    "work": "333 0",
+    "group": "test2",
+    "photo": {}
+  },
+  {
+    "firstname": "First 1",
+    "lastname": "Last 1",
+    "address": "Tver 1",
+    "email": "test@mail.tt 1",
+    "email2": "test2@mail.tt 1",
+    "email3": "test3@mail.tt 1",
+    "home": "111 1",
+    "mobile": "222 1",
+    "work": "333 1",
+    "group": "test2",
+    "photo": {}
+  },
+  {
+    "firstname": "First 2",
+    "lastname": "Last 2",
+    "address": "Tver 2",
+    "email": "test@mail.tt 2",
+    "email2": "test2@mail.tt 2",
+    "email3": "test3@mail.tt 2",
+    "home": "111 2",
+    "mobile": "222 2",
+    "work": "333 2",
+    "group": "test2",
+    "photo": {}
+  },
+  {
+    "firstname": "First 3",
+    "lastname": "Last 3",
+    "address": "Tver 3",
+    "email": "test@mail.tt 3",
+    "email2": "test2@mail.tt 3",
+    "email3": "test3@mail.tt 3",
+    "home": "111 3",
+    "mobile": "222 3",
+    "work": "333 3",
+    "group": "test2",
+    "photo": {}
+  }
+]
