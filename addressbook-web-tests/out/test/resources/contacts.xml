@@ -1,0 +1,54 @@
+<list>
+  <contact>
+    <firstname>First 0</firstname>
+    <lastname>Last 0</lastname>
+    <address>Tver 0</address>
+    <email>test@mail.tt 0</email>
+    <email2>test2@mail.tt 0</email2>
+    <email3>test3@mail.tt 0</email3>
+    <home>111 0</home>
+    <mobile>222 0</mobile>
+    <work>333 0</work>
+    <group>test2</group>
+    <photo>src\test\resources\usertile30.jpg</photo>
+  </contact>
+  <contact>
+    <firstname>First 1</firstname>
+    <lastname>Last 1</lastname>
+    <address>Tver 1</address>
+    <email>test@mail.tt 1</email>
+    <email2>test2@mail.tt 1</email2>
+    <email3>test3@mail.tt 1</email3>
+    <home>111 1</home>
+    <mobile>222 1</mobile>
+    <work>333 1</work>
+    <group>test2</group>
+    <photo>src\test\resources\usertile30.jpg</photo>
+  </contact>
+  <contact>
+    <firstname>First 2</firstname>
+    <lastname>Last 2</lastname>
+    <address>Tver 2</address>
+    <email>test@mail.tt 2</email>
+    <email2>test2@mail.tt 2</email2>
+    <email3>test3@mail.tt 2</email3>
+    <home>111 2</home>
+    <mobile>222 2</mobile>
+    <work>333 2</work>
+    <group>test2</group>
+    <photo>src\test\resources\usertile30.jpg</photo>
+  </contact>
+  <contact>
+    <firstname>First 3</firstname>
+    <lastname>Last 3</lastname>
+    <address>Tver 3</address>
+    <email>test@mail.tt 3</email>
+    <email2>test2@mail.tt 3</email2>
+    <email3>test3@mail.tt 3</email3>
+    <home>111 3</home>
+    <mobile>222 3</mobile>
+    <work>333 3</work>
+    <group>test2</group>
+    <photo>src\test\resources\usertile30.jpg</photo>
+  </contact>
+</list>

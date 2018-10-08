@@ -51,11 +51,12 @@ public class GroupDataGenerator {
         }
     }
 
-    private void saveAsJson(List<GroupData> groups, File file) throws IOException {
-        Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
-        String json = gson.toJson(groups);
+    private void saveAsCsv(List<GroupData> groups, File file) throws IOException {
+        System.out.println(new File(".").getAbsolutePath());
         Writer writer = new FileWriter(file);
-        writer.write(json);
+        for (GroupData group : groups) {
+            writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));
+        }
         writer.close();
     }
 
@@ -68,12 +69,11 @@ public class GroupDataGenerator {
         writer.close();
     }
 
-    private void saveAsCsv(List<GroupData> groups, File file) throws IOException {
-        System.out.println(new File(".").getAbsolutePath());
+    private void saveAsJson(List<GroupData> groups, File file) throws IOException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+        String json = gson.toJson(groups);
         Writer writer = new FileWriter(file);
-        for (GroupData group : groups) {
-            writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));
-        }
+        writer.write(json);
         writer.close();
     }
 
