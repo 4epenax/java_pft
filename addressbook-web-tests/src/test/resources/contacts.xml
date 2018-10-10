@@ -9,8 +9,8 @@
     <home>111 0</home>
     <mobile>222 0</mobile>
     <work>333 0</work>
-    <group>test2</group>
     <photo>src\test\resources\usertile30.jpg</photo>
+    <groups/>
   </contact>
   <contact>
     <firstname>First 1</firstname>
@@ -22,7 +22,7 @@
     <home>111 1</home>
     <mobile>222 1</mobile>
     <work>333 1</work>
-    <group>test2</group>
     <photo>src\test\resources\usertile30.jpg</photo>
+    <groups/>
   </contact>
 </list>
