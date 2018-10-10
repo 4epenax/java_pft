@@ -190,6 +190,11 @@ public class ContactData {
         return new Groups(groups);
     }
 
+    public ContactData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
+    }
+
     public File getPhoto() {
         if (photo != null) {
             return new File (photo);
