@@ -145,4 +145,10 @@ public class ContactHelper extends HelperBase {
         click(By.name("add"));
         contactCache = null;
     }
+
+    public void removeFromGroup(ContactData contact) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(contact.getGroups().iterator().next().getName());
+        selectContactById(contact.getId());
+        click(By.name("remove"));
+    }
 }

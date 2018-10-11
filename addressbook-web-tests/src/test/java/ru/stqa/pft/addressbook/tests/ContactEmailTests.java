@@ -45,7 +45,7 @@ public class ContactEmailTests extends TestBase {
                 .stream().filter((s) -> !s.equals("")).map(ContactEmailTests::cleaned).collect(Collectors.joining("\n"));
     }
 
-        public static String cleaned(String email) {
-            return email.replaceAll("", "");
+    public static String cleaned(String email) {
+        return email.replaceAll("", "");
     }
 }

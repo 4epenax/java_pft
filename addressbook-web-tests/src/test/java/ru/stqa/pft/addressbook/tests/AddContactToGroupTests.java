@@ -7,7 +7,6 @@ import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
-import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -18,6 +17,7 @@ public class AddContactToGroupTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         Groups groups = app.db().groups();
+        GroupData group = groups.iterator().next();
         if (app.db().groups().size() == 0) {
             app.goTo().groupPage();
             app.group().create(new GroupData().withName("test2"));
@@ -28,14 +28,14 @@ public class AddContactToGroupTests extends TestBase {
             app.contact().create(new ContactData()
                     .withFirstname("First").withLastname("Last").withAddress("Russia")
                     .withEmail("test@mail.tt").withEmail2("test@mail2.tt").withEmail3("test3@mail.tt")
-                    .withHomePhone("111").withMobilePhone("222").withWorkPhone("333").inGroup(groups.iterator().next()));
+                    .withHomePhone("111").withMobilePhone("222").withWorkPhone("333"));
         }
 
         int i = 0;
         Contacts contactsList = app.db().contacts();
         for (ContactData contact : contactsList) {
-            if (contact.getGroups().size() == 0 ){
-                i ++;
+            if (contact.getGroups().size() == 0) {
+                i++;
             }
         }
 
@@ -43,7 +43,7 @@ public class AddContactToGroupTests extends TestBase {
             app.contact().create(new ContactData()
                     .withFirstname("First").withLastname("Last").withAddress("Russia")
                     .withEmail("test@mail.tt").withEmail2("test@mail2.tt").withEmail3("test3@mail.tt")
-                    .withHomePhone("111").withMobilePhone("222").withWorkPhone("333").inGroup(groups.iterator().next()));
+                    .withHomePhone("111").withMobilePhone("222").withWorkPhone("333").inGroup(group));
         }
     }
 

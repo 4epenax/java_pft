@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
@@ -28,6 +29,12 @@ public class RemoveContactFromGroupTests extends TestBase {
 
     @Test
     public void testRemoveContactFromGroup() {
-
+        app.goTo().homePage();
+        Contacts before = app.db().contacts();
+        ContactData deletedGroup = before.iterator().next();
+        Groups group = deletedGroup.getGroups();
+        app.contact().removeFromGroup(deletedGroup);
+        Contacts after = app.db().contacts();
+        app.goTo().homePage();
     }
 }

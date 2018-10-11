@@ -29,7 +29,7 @@ public class ContactCreationTests extends TestBase {
         String line = reader.readLine();
         while (line != null) {
             String[] split = line.split(";");
-            list.add(new Object[] {new ContactData().withFirstname(split[0]).withLastname(split[1]).withAddress(split[2])
+            list.add(new Object[]{new ContactData().withFirstname(split[0]).withLastname(split[1]).withAddress(split[2])
                     .withEmail(split[3]).withEmail2(split[4]).withEmail3(split[5]).withHomePhone(split[6])
                     .withMobilePhone(split[7]).withWorkPhone(split[8])/*.inGroup(split[9])*/.withPhoto(new File(split[10]))});
             line = reader.readLine();
@@ -49,7 +49,7 @@ public class ContactCreationTests extends TestBase {
             XStream xstream = new XStream();
             xstream.processAnnotations(ContactData.class);
             List<ContactData> contacts = (List<ContactData>) xstream.fromXML(xml);
-            return contacts.stream().map((c) -> new Object[] {c}).collect(Collectors.toList()).iterator();
+            return contacts.stream().map((c) -> new Object[]{c}).collect(Collectors.toList()).iterator();
         }
     }
 
@@ -63,8 +63,9 @@ public class ContactCreationTests extends TestBase {
                 line = reader.readLine();
             }
             Gson gson = new Gson();
-            List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>(){}.getType()); // List<ContactData>.class
-            return contacts.stream().map((c) -> new Object[] {c}).collect(Collectors.toList()).iterator();
+            List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>() {
+            }.getType()); // List<ContactData>.class
+            return contacts.stream().map((c) -> new Object[]{c}).collect(Collectors.toList()).iterator();
         }
     }
 
