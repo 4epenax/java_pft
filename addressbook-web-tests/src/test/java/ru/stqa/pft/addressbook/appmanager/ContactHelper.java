@@ -8,6 +8,7 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.List;
 
@@ -138,17 +139,26 @@ public class ContactHelper extends HelperBase {
                 .withEmail3(email3).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
     }
 
-    public void addToGroup(ContactData contact, GroupData group) {
+    public void addToGroup(ContactData contact) {
+        allContacts();
         selectContactById(contact.getId());
-        new Select(wd.findElement(By.name("to_group")))
-                .selectByVisibleText(contact.getGroups().iterator().next().getName());
+        new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(contact.getGroups().iterator().next().getName());
         click(By.name("add"));
         contactCache = null;
     }
 
-    public void removeFromGroup(ContactData contact) {
-        new Select(wd.findElement(By.name("group"))).selectByVisibleText(contact.getGroups().iterator().next().getName());
+    public void allContacts() {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText("[all]");
+    }
+
+    public void removeFromGroup(ContactData contact, Groups groups) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(groups.iterator().next().getName());
+        if (!isThereAContact()) {
+            addToGroup(contact);
+            wd.findElement(By.xpath("//a[@href='./?group=" + groups.iterator().next().getId() + "']" )).click();
+        }
         selectContactById(contact.getId());
         click(By.name("remove"));
+        contactCache = null;
     }
 }

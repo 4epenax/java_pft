@@ -50,9 +50,9 @@ public class AddContactToGroupTests extends TestBase {
     @Test
     public void testAddContactToGroup() {
         app.goTo().homePage();
-        Contacts contacts = app.db().contacts();
+        Contacts before = app.db().contacts();
         Groups groups = app.db().groups();
-        ContactData selectedContact = contacts.iterator().next();
+        ContactData selectedContact = before.iterator().next();
         GroupData group = groups.iterator().next();
         ContactData contact = new ContactData()
                 .withId(selectedContact.getId()).withFirstname(selectedContact.getFirstname())
@@ -61,9 +61,10 @@ public class AddContactToGroupTests extends TestBase {
                 .withWorkPhone(selectedContact.getWorkPhone()).withEmail(selectedContact.getEmail())
                 .withEmail2(selectedContact.getEmail2()).withEmail3(selectedContact.getEmail3())
                 .inGroup(group);
-        Set<GroupData> before = contact.getGroups();
+        app.contact().addToGroup(contact);
         app.goTo().homePage();
-        Set<GroupData> after = contact.getGroups();
-        assertThat(after, equalTo(new Groups(before).withAdded(group)));
+        assertThat(app.contact().count(), equalTo(before.size()));
+        Contacts after = app.db().contacts();
+        assertThat(after, equalTo(before.withOut(selectedContact).withAdded(contact)));
     }
 }
