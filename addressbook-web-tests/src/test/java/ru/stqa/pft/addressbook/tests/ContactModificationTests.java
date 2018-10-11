@@ -18,6 +18,7 @@ public class ContactModificationTests extends TestBase {
             app.goTo().groupPage();
             app.group().create(new GroupData().withName("test1"));
         }
+
         if (app.db().contacts().size() == 0) {
             Groups groups = app.db().groups();
             app.goTo().homePage();

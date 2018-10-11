@@ -7,17 +7,39 @@ import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
+import java.util.List;
+import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class AddContactToGroupTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
+        Groups groups = app.db().groups();
         if (app.db().groups().size() == 0) {
             app.goTo().groupPage();
             app.group().create(new GroupData().withName("test2"));
         }
+
         if (app.db().contacts().size() == 0) {
-            Groups groups = app.db().groups();
             app.goTo().homePage();
+            app.contact().create(new ContactData()
+                    .withFirstname("First").withLastname("Last").withAddress("Russia")
+                    .withEmail("test@mail.tt").withEmail2("test@mail2.tt").withEmail3("test3@mail.tt")
+                    .withHomePhone("111").withMobilePhone("222").withWorkPhone("333").inGroup(groups.iterator().next()));
+        }
+
+        int i = 0;
+        Contacts contactsList = app.db().contacts();
+        for (ContactData contact : contactsList) {
+            if (contact.getGroups().size() == 0 ){
+                i ++;
+            }
+        }
+
+        if (i == 0) {
             app.contact().create(new ContactData()
                     .withFirstname("First").withLastname("Last").withAddress("Russia")
                     .withEmail("test@mail.tt").withEmail2("test@mail2.tt").withEmail3("test3@mail.tt")
@@ -28,10 +50,20 @@ public class AddContactToGroupTests extends TestBase {
     @Test
     public void testAddContactToGroup() {
         app.goTo().homePage();
-        Contacts contactDB = app.db().contacts();
-        ContactData moveContacts = contactDB.iterator().next();
-        ContactData contact = new ContactData().withId((moveContacts.getId()));
-        app.contact().addToGroup(contact);
+        Contacts contacts = app.db().contacts();
+        Groups groups = app.db().groups();
+        ContactData selectedContact = contacts.iterator().next();
+        GroupData group = groups.iterator().next();
+        ContactData contact = new ContactData()
+                .withId(selectedContact.getId()).withFirstname(selectedContact.getFirstname())
+                .withLastname(selectedContact.getLastname()).withAddress(selectedContact.getAddress())
+                .withMobilePhone(selectedContact.getMobilePhone()).withHomePhone(selectedContact.getHomePhone())
+                .withWorkPhone(selectedContact.getWorkPhone()).withEmail(selectedContact.getEmail())
+                .withEmail2(selectedContact.getEmail2()).withEmail3(selectedContact.getEmail3())
+                .inGroup(group);
+        Set<GroupData> before = contact.getGroups();
         app.goTo().homePage();
+        Set<GroupData> after = contact.getGroups();
+        assertThat(after, equalTo(new Groups(before).withAdded(group)));
     }
 }
