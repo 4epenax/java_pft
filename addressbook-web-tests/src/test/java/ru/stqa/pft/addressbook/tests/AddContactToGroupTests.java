@@ -15,18 +15,18 @@ public class AddContactToGroupTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         Groups groups = app.db().groups();
-        GroupData group = groups.iterator().next();
-        if (app.db().groups().size() == 0) {
+        if (groups.size() == 0) {
             app.goTo().groupPage();
             app.group().create(new GroupData().withName("test2"));
         }
 
         if (app.db().contacts().size() == 0) {
+            groups = app.db().groups();
             app.goTo().homePage();
             app.contact().create(new ContactData()
                     .withFirstname("First").withLastname("Last").withAddress("Russia")
                     .withEmail("test@mail.tt").withEmail2("test@mail2.tt").withEmail3("test3@mail.tt")
-                    .withHomePhone("111").withMobilePhone("222").withWorkPhone("333"));
+                    .withHomePhone("111").withMobilePhone("222").withWorkPhone("333").inGroup(groups.iterator().next()));
         }
 
         int i = 0;
@@ -41,7 +41,7 @@ public class AddContactToGroupTests extends TestBase {
             app.contact().create(new ContactData()
                     .withFirstname("First").withLastname("Last").withAddress("Russia")
                     .withEmail("test@mail.tt").withEmail2("test@mail2.tt").withEmail3("test3@mail.tt")
-                    .withHomePhone("111").withMobilePhone("222").withWorkPhone("333").inGroup(group));
+                    .withHomePhone("111").withMobilePhone("222").withWorkPhone("333").inGroup(groups.iterator().next()));
         }
     }
 
