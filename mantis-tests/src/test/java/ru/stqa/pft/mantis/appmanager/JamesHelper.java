@@ -14,11 +14,9 @@ import java.util.stream.Collectors;
 public class JamesHelper {
 
     private ApplicationManager app;
-
     private TelnetClient telnet;
     private InputStream in;
     private PrintStream out;
-
     private Session mailSession;
     private Store store;
     private String mailserver;
@@ -32,9 +30,9 @@ public class JamesHelper {
     public boolean doesUserExist(String name) {
         initTelnetSession();
         write("verify " + name);
-        String result = readUntil("exit");
+        String result = readUntil("exist");
         closeTelnetSession();
-        return result.trim().equals("User " + name + " exit");
+        return result.trim().equals("User" + name + "exist");
     }
 
     public void createUser(String name, String passwd) {
@@ -47,7 +45,7 @@ public class JamesHelper {
     public void deleteUser(String name) {
         initTelnetSession();
         write("deluser " + name);
-        String result = readUntil("User " + name + " delete");
+        String result = readUntil("User " + name + " deleted");
         closeTelnetSession();
     }
 
@@ -56,7 +54,6 @@ public class JamesHelper {
         int port = Integer.parseInt(app.getProperty("mailserver.port"));
         String login = app.getProperty("mailserver.adminlogin");
         String password = app.getProperty("mailserver.adminpassword");
-
         try {
             telnet.connect(mailserver, port);
             in = telnet.getInputStream();
@@ -66,15 +63,9 @@ public class JamesHelper {
         }
 
         readUntil("Login id:");
-        write("");
-        readUntil("Password:");
-        write("");
-
-        readUntil("Login id:");
         write(login);
         readUntil("Password:");
         write(password);
-
         readUntil("Welcome " + login + ". HELP for a list of commands");
     }
 
@@ -99,7 +90,7 @@ public class JamesHelper {
         return null;
     }
 
-    public void write(String value) {
+    private void write(String value) {
         try {
             out.println(value);
             out.flush();
@@ -113,8 +104,8 @@ public class JamesHelper {
         write("quit");
     }
 
-    public void drainEmail(String username, String pasword) throws MessagingException {
-        Folder inbox = openInbox(username, pasword);
+    public void drainEmail(String username, String password) throws MessagingException {
+        Folder inbox = openInbox(username, password);
         for (Message message : inbox.getMessages()) {
             message.setFlag(Flags.Flag.DELETED, true);
         }

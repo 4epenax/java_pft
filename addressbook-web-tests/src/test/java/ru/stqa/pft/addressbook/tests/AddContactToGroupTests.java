@@ -7,6 +7,8 @@ import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -46,23 +48,28 @@ public class AddContactToGroupTests extends TestBase {
     }
 
     @Test
-    public void testAddContactToGroup() {
-        app.goTo().homePage();
-        Contacts before = app.db().contacts();
-        Groups groups = app.db().groups();
-        ContactData selectedContact = before.iterator().next();
-        GroupData group = groups.iterator().next();
+    public void testContactAddGroup() {
+        Groups allGroups = app.db().groups();
+        GroupData addGroup = allGroups.iterator().next();
+        int i = 0;
+        List<ContactData> contactsListBefore = app.db().contactsList();
+        for (ContactData contact : contactsListBefore) {
+            if (contact.getGroups().size() == 0) break;
+            else if (contact.getGroups().size() > 0) {
+                i++;
+            }
+        }
+        ContactData changedContactBefore = contactsListBefore.get(i);
+        Groups Before = changedContactBefore.getGroups();
         ContactData contact = new ContactData()
-                .withId(selectedContact.getId()).withFirstname(selectedContact.getFirstname())
-                .withLastname(selectedContact.getLastname()).withAddress(selectedContact.getAddress())
-                .withMobilePhone(selectedContact.getMobilePhone()).withHomePhone(selectedContact.getHomePhone())
-                .withWorkPhone(selectedContact.getWorkPhone()).withEmail(selectedContact.getEmail())
-                .withEmail2(selectedContact.getEmail2()).withEmail3(selectedContact.getEmail3())
-                .inGroup(group);
-        app.contact().addToGroup(contact);
+                .withId(changedContactBefore.getId()).inGroup(addGroup);
         app.goTo().homePage();
-        assertThat(app.contact().count(), equalTo(before.size()));
-        Contacts after = app.db().contacts();
-        assertThat(after, equalTo(before.withOut(selectedContact).withAdded(contact)));
+        app.contact().addToGroup(contact);
+        List<ContactData> contactsListAfter = app.db().contactsList();
+        ContactData changedContactAfter = contactsListAfter.get(i);
+        Groups groupsAfter = changedContactAfter.getGroups();
+        assertThat(groupsAfter.size(), equalTo(Before.size() + 1));
+        assertThat(groupsAfter, equalTo(Before.withAdded(addGroup)));
+        app.goTo().homePage();
     }
 }
