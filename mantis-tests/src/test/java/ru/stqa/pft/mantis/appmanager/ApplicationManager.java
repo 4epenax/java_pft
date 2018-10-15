@@ -15,17 +15,16 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
     private final Properties properties;
+
     private WebDriver wd;
 
     private String browser;
     private RegistrationHelper registrationHelper;
+
     private FtpHelper ftp;
     private MailHelper mailHelper;
+    private AdministratorHelper administratorHelper;
     private JamesHelper jamesHelper;
-    private SessionHelper sessionHelper;
-    private NavigationHelper navigationHelper;
-    private DbHelper dbHelper;
-    private UserHelper userHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -34,7 +33,7 @@ public class ApplicationManager {
 
     public void init() throws IOException {
         String target = System.getProperty("target", "local");
-        properties.load(new FileReader((new File(String.format("src/test/resources/%s.properties", target)))));
+        properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
     }
 
     public void stop() {
@@ -59,16 +58,23 @@ public class ApplicationManager {
     }
 
     public FtpHelper ftp() {
-        if (wd == null) {
+        if (ftp == null) {
             ftp = new FtpHelper(this);
         }
         return ftp;
     }
 
+    public AdministratorHelper admin() {
+        if (administratorHelper == null) {
+            administratorHelper = new AdministratorHelper(this);
+        }
+        return administratorHelper;
+    }
+
     public WebDriver getDriver() {
         if (wd == null) {
             if (browser.equals(BrowserType.FIREFOX)) {
-                wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
+                wd = new FirefoxDriver();
             } else if (browser.equals(BrowserType.CHROME)) {
                 wd = new ChromeDriver();
             } else if (browser.equals(BrowserType.IE)) {
@@ -92,33 +98,5 @@ public class ApplicationManager {
             jamesHelper = new JamesHelper(this);
         }
         return jamesHelper;
-    }
-
-    public SessionHelper session() {
-        if (sessionHelper == null) {
-            sessionHelper = new SessionHelper(this);
-        }
-        return sessionHelper;
-    }
-
-    public NavigationHelper goTo() {
-        if (navigationHelper == null) {
-            navigationHelper = new NavigationHelper(this);
-        }
-        return navigationHelper;
-    }
-
-    public DbHelper db() {
-        if (dbHelper == null) {
-            dbHelper = new DbHelper(this);
-        }
-        return dbHelper;
-    }
-
-    public UserHelper user() {
-        if (userHelper == null) {
-            userHelper = new UserHelper(this);
-        }
-        return userHelper;
     }
 }

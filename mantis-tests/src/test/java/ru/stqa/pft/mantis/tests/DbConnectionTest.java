@@ -17,7 +17,7 @@ public class DbConnectionTest {
             ResultSet rs = st.executeQuery("mantis_user_table");
             Users users = new Users();
             while (rs.next()) {
-                users.add(new UserData().withId(rs.getInt("id")).withUsername(rs.getString("username")).withEmail(rs.getString("email")));
+                users.add(new UserData().withUsername(rs.getString("username")).withEmail(rs.getString("email")));
             }
             rs.close();
             st.close();

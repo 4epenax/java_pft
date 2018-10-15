@@ -9,11 +9,6 @@ public class UserHelper extends HelperBase {
         super(app);
     }
 
-    public void resetPassword(UserData user) {
-        initUserModificationById(user.getId());
-        initUserPasswordResetById();
-    }
-
     public void initUserModificationById(int id) {
         wd.findElement(By.xpath("//a[@href='manage_user_edit_page.php?user_id=" + id + "']")).click();
     }

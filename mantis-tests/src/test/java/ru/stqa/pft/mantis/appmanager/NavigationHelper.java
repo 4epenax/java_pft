@@ -10,7 +10,7 @@ public class NavigationHelper extends HelperBase {
     public NavigationHelper(ApplicationManager app) {
         super(app);
     }
-
+/*
     public void waitForElement(String id, String cssSelector) {
         WebDriverWait wait = new WebDriverWait(wd, 10);
         if (id != "") {
@@ -37,4 +37,5 @@ public class NavigationHelper extends HelperBase {
         waitForElement("", userPageLink);
         wd.findElement(By.cssSelector(userPageLink)).click();
     }
+    */
 }
