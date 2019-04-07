@@ -61,11 +61,13 @@ public class RemoveContactFromGroupTests extends TestBase {
         app.goTo().homePage();
         ContactData changedContactBefore = contactsList.get(i);
         Groups groupsBefore = changedContactBefore.getGroups();
+        GroupData groupToDelete = groupsBefore.iterator().next();
         app.contact().removeFromGroup(changedContactBefore);
         List<ContactData> contactsListAfter = app.db().contactsList();
         ContactData changedContactAfter = contactsListAfter.get(i);
         Groups groupsAfter  = changedContactAfter.getGroups();
         assertThat(groupsAfter.size(), equalTo(groupsBefore.size() - 1));
+        assertThat(groupsAfter, equalTo(groupsBefore.without(groupToDelete)));
         app.goTo().homePage();
     }
 }
