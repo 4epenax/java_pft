@@ -11,7 +11,7 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-//тест удаления сонтакта из группы
+//тест удаления контакта из группы
 public class RemoveContactFromGroupTests extends TestBase {
 
     @BeforeMethod
