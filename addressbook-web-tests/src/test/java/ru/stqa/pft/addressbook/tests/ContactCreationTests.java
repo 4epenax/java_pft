@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-// создание контакта
+//тест создания контакта
 public class ContactCreationTests extends TestBase {
 
     @DataProvider

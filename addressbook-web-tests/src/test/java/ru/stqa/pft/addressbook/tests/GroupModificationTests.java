@@ -8,7 +8,7 @@ import ru.stqa.pft.addressbook.model.Groups;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-//изменение группы
+//тест изменения группы
 public class GroupModificationTests extends TestBase {
 
     @BeforeMethod

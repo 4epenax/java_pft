@@ -8,7 +8,7 @@ import ru.stqa.pft.addressbook.model.Groups;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-//удаление группы
+//тест удаления группы
 public class GroupDeletionTests extends TestBase {
 
     @BeforeMethod
