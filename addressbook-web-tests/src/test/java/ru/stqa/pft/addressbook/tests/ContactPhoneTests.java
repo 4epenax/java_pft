@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+//тест поля для телефона
 public class ContactPhoneTests extends TestBase {
 
     @BeforeMethod

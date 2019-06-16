@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+//базовый класс
 public class TestBase {
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);

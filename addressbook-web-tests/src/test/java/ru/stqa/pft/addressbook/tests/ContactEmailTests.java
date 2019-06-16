@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+//тест поля для электронной почты
 public class ContactEmailTests extends TestBase {
 
     @BeforeMethod

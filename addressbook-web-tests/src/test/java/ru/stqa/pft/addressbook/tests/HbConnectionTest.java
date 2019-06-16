@@ -11,6 +11,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.List;
 
+//
 public class HbConnectionTest {
 
     private SessionFactory sessionFactory;

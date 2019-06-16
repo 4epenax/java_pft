@@ -6,6 +6,7 @@ import ru.stqa.pft.addressbook.model.Groups;
 
 import java.sql.*;
 
+//тест подключения к БД
 public class DbConnectionTest {
 
     @Test
