@@ -8,16 +8,15 @@ public class Shuffler {
             if(x > 2){
                 System.out.print("a");
             }
+            x--;
+            System.out.print("-");
             if (x == 2){
                 System.out.print("b c");
             }
             if (x == 1){
                 System.out.print("d");
+                x--;
             }
-            if (x > 1){
-                System.out.print("-");
-            }
-            x--;
         }
     }
 }
