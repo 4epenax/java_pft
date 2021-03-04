@@ -5,30 +5,30 @@ public class PoolPuzzleOne {
     public static void main(String[] args){
 
         int x=0;
-    //TODO:
-        while (x<1){
 
-            x=x-1;
+        while (x<4){
+
+            System.out.print("a");
             if (x<1){
-                System.out.print("a");
+                System.out.print(" ");
             }
 
-            x=x+2;
+            System.out.print("n");
 
             if (x>1){
-                System.out.print(" ");
-                x=x-2;
+                System.out.print(" oyster");
+                x=x+2;
             }
 
             if (x==1){
-                System.out.print("noise");
+                System.out.print("noys");
             }
 
-            if (x<4){
-                System.out.print("annoys");
+            if (x<1){
+                System.out.print("oise");
             }
             System.out.println("");
-            x=x-2;
+            x=x+1;
         }
     }
 }
