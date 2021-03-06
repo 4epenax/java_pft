@@ -1,0 +1,22 @@
+<ns:IPSideAnswer xmlns:ns="http://www.red-soft.biz/schemas/fssp/common/2011/0.5">
+    <InternalKey>01021300</InternalKey>
+    <QueryExternalKey>11001384709</QueryExternalKey>
+    <IpInternalKey>28041001724806</IpInternalKey>
+    <ActDate>2014-06-01</ActDate>
+    <IPDocsInfo/>
+    <InternalKey>010221300</InternalKey>
+    <IpInternalKey>28041001724806</IpInternalKey>
+    <DocDate>2014-01-31</DocDate>
+    <SPIId>28040100000080</SPIId>
+    <SPIFio>Скрипко Александр Владимирович</SPIFio>
+    <SPIPost>2676042112000</SPIPost>
+    <DocNum>12345</DocNum>
+    <DocType>O_IP_ACT_REOPEN</DocType>
+    <StartDate>2013-04-10</StartDate>
+    <FinDate>2015-05-01</FinDate>
+    <Counterpart>Тот Самый Должник</Counterpart>
+    <Reason>Текст основания</Reason>
+    <Article>3</Article>
+    <Point>2</Point>
+    <ArticlePart>4</ArticlePart>
+</ns:IPSideAnswer>
