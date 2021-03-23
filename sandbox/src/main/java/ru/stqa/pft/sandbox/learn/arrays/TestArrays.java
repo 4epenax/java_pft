@@ -1,4 +1,4 @@
-package ru.stqa.pft.sandbox.learn;
+package ru.stqa.pft.sandbox.learn.arrays;
 
 class TestArrays {
 

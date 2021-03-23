@@ -1,4 +1,4 @@
-package ru.stqa.pft.sandbox.learn.loop;
+package ru.stqa.pft.sandbox.learn.loops;
 
 public class ForEachExample {
 
